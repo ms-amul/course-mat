@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .timestamp, .site-name {
+    display: none !important;
+  }
+}
