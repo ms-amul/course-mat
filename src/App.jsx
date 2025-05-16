@@ -98,9 +98,43 @@ const CourseForm = () => {
   );
 
   return (
-    <div className="p-4">
-      <div className="no-print" style={{ marginBottom: 16 }}>
-        <Button type="primary" onClick={generatePDF}>
+    <div className="">
+      <div
+        className="no-print"
+        style={{
+          backgroundColor: "#f0f2f5", // Subtle dark gray
+          padding: "16px 24px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 24,
+          borderRadius: 8,
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/en/thumb/7/78/KL_University_logo.svg/1200px-KL_University_logo.svg.png"
+            alt="Logo"
+            style={{ height: 48 }}
+          />
+          <h1
+            style={{
+              margin: 0,
+              fontSize: "24px",
+              fontWeight: "bold",
+              color: "#333",
+            }}
+          >
+            Course Plan - School of Computing
+          </h1>
+        </div>
+
+        <Button
+          type="primary"
+          onClick={generatePDF}
+          style={{ fontWeight: "bold" }}
+        >
           Submit & Print
         </Button>
       </div>
@@ -118,7 +152,15 @@ const CourseForm = () => {
         <div>
           <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
             <div style={{ flex: 1 }}>
-              <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE CODE</label>
+              <label
+                style={{
+                  fontWeight: "bold",
+                  display: "block",
+                  marginBottom: 8,
+                }}
+              >
+                COURSE CODE
+              </label>
               {renderInput(
                 formData.courseCode,
                 (e) => handleChange("courseCode", e.target.value),
@@ -126,7 +168,15 @@ const CourseForm = () => {
               )}
             </div>
             <div style={{ flex: 1 }}>
-              <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE CATEGORY</label>
+              <label
+                style={{
+                  fontWeight: "bold",
+                  display: "block",
+                  marginBottom: 8,
+                }}
+              >
+                COURSE CATEGORY
+              </label>
               {renderInput(
                 formData.courseCategory,
                 (e) => handleChange("courseCategory", e.target.value),
@@ -134,7 +184,15 @@ const CourseForm = () => {
               )}
             </div>
             <div style={{ flex: 1 }}>
-              <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>DEPARTMENT</label>
+              <label
+                style={{
+                  fontWeight: "bold",
+                  display: "block",
+                  marginBottom: 8,
+                }}
+              >
+                DEPARTMENT
+              </label>
               {renderInput(
                 formData.department,
                 (e) => handleChange("department", e.target.value),
@@ -144,7 +202,11 @@ const CourseForm = () => {
           </div>
 
           <div style={{ marginBottom: 16 }}>
-            <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE TITLE</label>
+            <label
+              style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}
+            >
+              COURSE TITLE
+            </label>
             {renderInput(
               formData.courseTitle,
               (e) => handleChange("courseTitle", e.target.value),
@@ -155,7 +217,15 @@ const CourseForm = () => {
           <div style={{ display: "flex", gap: 16, marginBottom: 16 }}>
             {["L", "T", "P", "S", "Cr", "CH"].map((label) => (
               <div style={{ flex: 1 }} key={label}>
-                <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>{label}</label>
+                <label
+                  style={{
+                    fontWeight: "bold",
+                    display: "block",
+                    marginBottom: 8,
+                  }}
+                >
+                  {label}
+                </label>
                 {renderInput(
                   formData[label.toLowerCase()],
                   (e) => handleChange(label.toLowerCase(), e.target.value),
@@ -166,7 +236,11 @@ const CourseForm = () => {
           </div>
 
           <div style={{ marginBottom: 32 }}>
-            <label style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>PRE-REQUISITE COURSE(S)</label>
+            <label
+              style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}
+            >
+              PRE-REQUISITE COURSE(S)
+            </label>
             {renderInput(
               formData.preRequisite,
               (e) => handleChange("preRequisite", e.target.value),
@@ -177,7 +251,9 @@ const CourseForm = () => {
 
         {/* OBJECTIVES */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE OBJECTIVES</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            COURSE OBJECTIVES
+          </h3>
           {formData.objectives.map((val, i) => (
             <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <strong>{i + 1}.</strong>
@@ -192,7 +268,9 @@ const CourseForm = () => {
 
         {/* OUTCOMES */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE OUTCOMES</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            COURSE OUTCOMES
+          </h3>
           <table
             style={{ width: "100%", borderCollapse: "collapse", marginTop: 16 }}
           >
@@ -245,7 +323,9 @@ const CourseForm = () => {
 
         {/* MATRIX */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>COURSE ARTICULATION MATRIX</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            COURSE ARTICULATION MATRIX
+          </h3>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
               <tr>
@@ -266,7 +346,10 @@ const CourseForm = () => {
                     CO{i + 1}
                   </td>
                   {row.map((cell, j) => (
-                    <td key={j} style={{ border: "1px solid #000", padding: 4 }}>
+                    <td
+                      key={j}
+                      style={{ border: "1px solid #000", padding: 4 }}
+                    >
                       {renderInput(cell, (e) =>
                         handleMatrixChange(i, j, e.target.value)
                       )}
@@ -280,7 +363,9 @@ const CourseForm = () => {
 
         {/* SYLLABUS */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>SYLLABUS</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            SYLLABUS
+          </h3>
           {formData.syllabus.map((val, i) => (
             <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <strong>CO{i + 1}:</strong>
@@ -295,7 +380,9 @@ const CourseForm = () => {
 
         {/* TEXTBOOKS */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>TEXTBOOKS</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            TEXTBOOKS
+          </h3>
           {formData.textbooks.map((val, i) => (
             <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <strong>{i + 1}.</strong>
@@ -310,7 +397,9 @@ const CourseForm = () => {
 
         {/* REFERENCES */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>REFERENCE BOOKS</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            REFERENCE BOOKS
+          </h3>
           {formData.references.map((val, i) => (
             <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <strong>{i + 1}.</strong>
@@ -325,7 +414,9 @@ const CourseForm = () => {
 
         {/* MOOCS */}
         <div style={sectionStyle}>
-          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>MOOCs / WEB LINKS</h3>
+          <h3 style={{ fontWeight: "bold", display: "block", marginBottom: 8 }}>
+            MOOCs / WEB LINKS
+          </h3>
           {formData.moocs.map((val, i) => (
             <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <strong>{i + 1}.</strong>
